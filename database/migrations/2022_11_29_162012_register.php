@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users',function($table){
+        Schema::create('registration',function($table){
             $table->id();
-            $table->string('userType',50);
-            $table->string('name',50);
-            $table->string('email',200);
+            $table->string('name',200);
+            $table->string('phone',200);
+            $table->string('email');
+            $table->string('address',200)->nullable();
+            $table->string('place',200)->nullable();
             $table->string('password',200);
             $table->timestamps();
         });
@@ -30,6 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('registration');
+
     }
 };

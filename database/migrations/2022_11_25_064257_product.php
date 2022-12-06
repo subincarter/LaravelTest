@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todoSub',function($table){
-            $table->integer('taskID');
-            $table->string('subTask',200);
-            $table->boolean('completed')->default('0');;
+        Schema::create('product',function($table){
+            $table->id();
+            $table->string('name',200);
+            $table->string('description',200);
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todoSub');
+        Schema::dropIfExists('product');
     }
 };

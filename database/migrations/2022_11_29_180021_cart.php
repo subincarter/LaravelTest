@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todo',function($table){
+        Schema::create('cart',function($table){
             $table->id();
-            $table->string('task',200);
-            $table->boolean('completed')->default('0');;
-            $table->date('dueDate');
-            $table->softDeletes();
+            $table->integer('userID');
+            $table->integer('productID');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo');
+        Schema::dropIfExists('cart');
     }
 };
